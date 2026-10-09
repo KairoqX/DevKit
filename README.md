@@ -1,4 +1,4 @@
-# DevKit
+# Vexiqora
 
 **Free online developer tools for formatting JSON, comparing text, encoding Base64, and counting words.**
 
