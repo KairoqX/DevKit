@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Colours as "R G B" numbers so Tailwind can add transparency to them. */
+:root {
+  color-scheme: light;
+  --canvas: 247 248 249;
+  --surface: 255 255 255;
+  --ink: 31 35 40;
+  --muted: 89 97 107;
+  --line: 221 225 230;
+  --accent: 29 107 87;
+  --accent-strong: 21 82 66;
+  --accent-soft: 232 243 239;
+  --accent-text: 29 107 87;
+  --danger: 164 38 44;
+  --danger-soft: 251 236 235;
+  --added-bg: 228 244 234;
+  --removed-bg: 251 233 232;
+}
+
+.dark {
+  color-scheme: dark; /* makes scrollbars and form controls dark too */
+  --canvas: 15 18 20;
+  --surface: 23 27 31;
+  --ink: 232 234 237;
+  --muted: 154 163 173;
+  --line: 44 51 58;
+  --accent: 35 128 101;
+  --accent-strong: 29 107 87;
+  --accent-soft: 18 48 42;
+  --accent-text: 95 208 174;
+  --danger: 255 138 143;
+  --danger-soft: 58 26 28;
+  --added-bg: 18 48 31;
+  --removed-bg: 58 26 28;
+}
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;

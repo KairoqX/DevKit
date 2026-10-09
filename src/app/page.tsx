@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
 });
 
 const principles = [
-  { title: "Runs in your browser", text: "The tools process what you paste on your own device. DevKit doesn’t upload it." },
+  { title: "Runs in your browser", text: "The tools process what you paste on your own device. Vexiqora doesn’t upload it." },
   { title: "No account", text: "Open a tool and use it. There is nothing to sign up for." },
   { title: "Free to use", text: "The tools are free. There are no ads or tracking scripts in this version." },
 ];
@@ -33,7 +33,7 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="principles" className="mx-auto max-w-6xl px-4 pt-14 sm:px-6">
-        <h2 id="principles" className="text-xl font-semibold">How DevKit works</h2>
+        <h2 id="principles" className="text-xl font-semibold">How Vexiqora works</h2>
         <dl className="mt-6 grid gap-8 md:grid-cols-3">
           {principles.map((item) => (
             <div key={item.title} className="border-t border-line pt-4">
@@ -44,7 +44,7 @@ export default function HomePage() {
         </dl>
         <p className="mt-8 text-sm text-muted">
           Read the full details on the{" "}
-          <Link href="/privacy" className="font-medium text-accent underline underline-offset-4">
+          <Link href="/privacy" className="font-medium text-accent-text underline underline-offset-4">
             privacy page
           </Link>
           .

@@ -26,7 +26,7 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
-        <nav aria-label="About DevKit">
+        <nav aria-label="About Vexiqora">
           <p className="text-sm font-medium">{siteConfig.name}</p>
           <ul className="mt-3 space-y-2">
             <li><Link href="/about" className={linkClass}>About</Link></li>

@@ -90,7 +90,7 @@ export default function ToolLayout({ tool, children }: { tool: Tool; children: R
             <ul className="mt-4 space-y-2">
               {others.map((t) => (
                 <li key={t.slug}>
-                  <Link href={toolPath(t)} className="font-medium text-accent underline underline-offset-4 hover:text-accent-strong">
+                  <Link href={toolPath(t)} className="font-medium text-accent-text underline underline-offset-4 hover:text-ink">
                     {t.name}
                   </Link>
                   <span className="text-muted"> – {t.summary}</span>

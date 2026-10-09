@@ -60,7 +60,7 @@ export default function JsonTool() {
       {status && <Notice kind={status.kind}>{status.text}</Notice>}
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <TextArea label="Input" value={input} onChange={setInput} placeholder='{"name": "DevKit", "free": true}' rows={18} />
+        <TextArea label="Input" value={input} onChange={setInput} placeholder='{"name": "Vexiqora", "free": true}' rows={18} />
         <TextArea label="Output" value={output} readOnly rows={18} placeholder="Formatted or minified JSON appears here." />
       </div>
     </div>

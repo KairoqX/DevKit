@@ -10,6 +10,9 @@ import "./globals.css";
 const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans", display: "swap" });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"], variable: "--font-mono", display: "swap" });
 
+// Runs before the page is drawn: use the saved theme, or else the device's light/dark setting.
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.classList.add("dark")}catch(e){}})();`;
+
 export const metadata: Metadata = {
   // All relative URLs in metadata (canonical links, Open Graph) are built from this.
   metadataBase: new URL(siteConfig.url),
@@ -20,12 +23,16 @@ export const metadata: Metadata = {
   robots: isIndexable
     ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } }
     : { index: false, follow: false },
+  ...(siteConfig.googleSiteVerification ? { verification: { google: siteConfig.googleSiteVerification } } : {}),
   // Icons come from the files in src/app: favicon.ico, icon.svg and apple-icon.png.
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-screen flex-col">
         <a
           href="#main"

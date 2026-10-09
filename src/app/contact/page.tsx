@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   ...buildMetadata({
     title: "Contact",
-    description: "How to get in touch with DevKit about bugs, feedback or suggestions.",
+    description: "How to get in touch with Vexiqora about bugs, feedback or suggestions.",
     path: "/contact",
   }),
   // While there is no email address to show, the page has nothing useful for search results.

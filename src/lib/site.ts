@@ -1,37 +1,34 @@
 // The one place that holds site-wide settings.
-// To set your real domain, use the NEXT_PUBLIC_SITE_URL environment variable (see .env.example).
-// No code edits are needed.
+// The production domain is set here. To use a different domain later, set the
+// NEXT_PUBLIC_SITE_URL environment variable (see .env.example); it overrides this default.
 
-// A clearly fake address, used only until you provide your real domain.
-const PLACEHOLDER_URL = "https://devkit.example.com";
-
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const DEFAULT_URL = "https://vexiqora.vercel.app";
 
 export const siteConfig = {
-  name: "DevKit",
+  name: "Vexiqora",
   tagline: "Free Online Developer Tools",
-  // Title of the homepage. Other pages use "<Page title> — DevKit".
-  homeTitle: "DevKit — Free Online Developer Tools",
+  // Title of the homepage. Other pages use "<Page title> — Vexiqora".
+  homeTitle: "Vexiqora — Free Online Developer Tools",
   titleSeparator: " — ",
   description:
     "Free online developer tools for formatting JSON, comparing text, encoding Base64, and counting words.",
 
   // Production URL, without a trailing slash. Everything else is built from this.
-  url: (configuredUrl || PLACEHOLDER_URL).replace(/\/+$/, ""),
-  // True until NEXT_PUBLIC_SITE_URL is set.
-  isPlaceholderUrl: !configuredUrl,
+  url: (process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_URL).replace(/\/+$/, ""),
 
   // Only fill these in with real values. Nothing is shown or output while they are empty.
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "",
-  socialProfiles: [] as string[], // for example: ["https://github.com/your-name/devkit"]
+  socialProfiles: [] as string[], // for example: ["https://github.com/your-name/vexiqora"]
   twitterHandle: "", // for example: "@yourhandle"
+  // Optional: the verification code Google Search Console gives you for the "HTML tag" method.
+  googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || "",
 
   // The social-sharing image lives in /public.
   ogImage: {
     path: "/og-image.png",
     width: 1200,
     height: 630,
-    alt: "DevKit: free online developer tools that run in your browser",
+    alt: "Vexiqora: free online developer tools that run in your browser",
   },
 };
 
@@ -43,7 +40,7 @@ export function absoluteUrl(path = "/"): string {
 
 /**
  * Whether search engines should be allowed to index this deployment.
- * Off until a real domain is configured, and off for Vercel preview deployments,
- * so test copies of the site never compete with the real one.
+ * Vercel "Preview" deployments (test copies of your site) are kept out of search results,
+ * so they never compete with the real site.
  */
-export const isIndexable = !siteConfig.isPlaceholderUrl && process.env.VERCEL_ENV !== "preview";
+export const isIndexable = process.env.VERCEL_ENV !== "preview";
