@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Liberation Sans, Arial, Helvetica, sans-serif">
+  <rect width="1200" height="630" fill="#f7f8f9"/>
+  <rect width="1200" height="12" y="618" fill="#1d6b57"/>
+  <!-- logo mark + name -->
+  <g transform="translate(80 76)">
+    <rect width="72" height="72" rx="16" fill="#1d6b57"/>
+    <g transform="translate(36 36) scale(1.8) translate(-16 -16)">
+      <path d="M13 9 6 16l7 7M19 9l7 7-7 7" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <text x="176" y="128" font-size="48" font-weight="700" fill="#1f2328">DevKit</text>
+  <!-- headline -->
+  <text font-size="84" font-weight="700" fill="#1f2328">
+    <tspan x="80" y="300">Free online</tspan>
+    <tspan x="80" y="396">developer tools</tspan>
+  </text>
+  <text x="80" y="460" font-size="34" fill="#59616b">Your input stays in your browser.</text>
+  <!-- the four tools -->
+  <g font-size="26" font-weight="700" fill="#1f2328">
+    <rect x="80" y="506" width="240" height="56" rx="10" fill="#fff" stroke="#dde1e6" stroke-width="2"/>
+    <text x="200" y="543" text-anchor="middle">JSON formatter</text>
+    <rect x="336" y="506" width="160" height="56" rx="10" fill="#fff" stroke="#dde1e6" stroke-width="2"/>
+    <text x="416" y="543" text-anchor="middle">Text diff</text>
+    <rect x="512" y="506" width="150" height="56" rx="10" fill="#fff" stroke="#dde1e6" stroke-width="2"/>
+    <text x="587" y="543" text-anchor="middle">Base64</text>
+    <rect x="678" y="506" width="210" height="56" rx="10" fill="#fff" stroke="#dde1e6" stroke-width="2"/>
+    <text x="783" y="543" text-anchor="middle">Word counter</text>
+  </g>
+</svg>

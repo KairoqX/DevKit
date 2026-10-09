@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  /* A clear keyboard focus ring on everything interactive. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas;
+  }
+  textarea,
+  input[type="search"],
+  select {
+    @apply focus:border-accent;
+  }
+  ::selection {
+    @apply bg-accent-soft;
+  }
+}
