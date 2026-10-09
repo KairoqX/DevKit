@@ -2,7 +2,9 @@
 
 **Free online developer tools for formatting JSON, comparing text, encoding Base64, and counting words.**
 
-DevKit is a small, fast toolbox that runs entirely in your browser. There are no accounts, no database and no paid services. What you paste into a tool is processed on your own device and is not uploaded by the site's code.
+Vexiqora is a small, fast toolbox that runs entirely in your browser. There are no accounts, no database and no paid services. What you paste into a tool is processed on your own device and is not uploaded by the site's code.
+
+Live at **https://vexiqora.vercel.app** once deployed.
 
 Built with Next.js (App Router), TypeScript and Tailwind CSS. Designed to deploy on Vercel's free tier.
 
@@ -61,9 +63,10 @@ Every tool has its own shareable URL, its own page title and description, a step
 
 ## The website
 
-- Clean, minimal interface: light background, charcoal text, one restrained green accent, IBM Plex fonts, no decorative animation
+- Clean, minimal interface: charcoal text, one restrained green accent, IBM Plex fonts, no decorative animation
+- **Light and dark themes** with a toggle button at the top left of the navbar. The first visit follows your device setting, your choice is remembered in this browser, and the right theme is applied before the page is drawn to avoid a flash. Colours are defined once as variables in `src/app/globals.css`, and a test checks both themes define every colour.
 - **Homepage** with a hero, a **live search** that filters tools, tool cards grouped by category, and an empty state with a "Clear search" button
-- Responsive **navbar** (logo links home) and **footer** with About, Privacy and Contact links
+- Responsive **navbar** (theme button and logo at the left; the logo links home) and **footer** with About, Privacy and Contact links
 - **About**, **Privacy** and **Contact** pages, plus a friendly 404 page and an error screen for unexpected problems
 - Breadcrumbs, "More tools" links and consistent headings on every tool page
 - Loading-free by design: the tools respond instantly because there is no network step
@@ -73,7 +76,7 @@ Every tool has its own shareable URL, its own page title and description, a step
 ## Privacy
 
 - Tool input is processed in the browser. The site's code does not send it anywhere.
-- No accounts, database, analytics, advertising scripts or cookies set by DevKit's own code
+- No accounts, database, analytics, advertising scripts or cookies set by Vexiqora's own code. The only thing stored in your browser is your light/dark choice (local storage, never sent anywhere), and the Privacy page says so
 - Fonts are served from the site itself, so visitors' browsers don't contact a font service
 - The Privacy page describes exactly this, and notes that the hosting provider may keep standard request logs
 - No claims of perfect security or privacy are made
@@ -82,11 +85,13 @@ Every tool has its own shareable URL, its own page title and description, a step
 
 ## Search and sharing
 
-- Unique page title and description for the homepage and every tool (`JSON Formatter & Validator — DevKit`)
+- Unique page title and description for the homepage and every tool (`JSON Formatter & Validator — Vexiqora`)
 - Canonical URLs, Open Graph and Twitter/X large-image cards, all built from **one** configurable domain
 - Generated `sitemap.xml` (homepage, tools, About, Privacy; Contact only once an email is configured) and `robots.txt`
 - Structured data describing each tool as a free web application, with no ratings or reviews
-- **Indexing safety switch:** until a real domain is set, and on Vercel preview deployments, the site asks search engines not to index it
+- The domain **https://vexiqora.vercel.app** is the default for all canonical URLs, sitemap entries and `robots.txt`
+- **Preview protection:** Vercel preview deployments (test copies) ask search engines not to index them
+- Optional Google Search Console verification through an environment variable
 - Icon set: `favicon.ico` (16/32/48 px), `icon.svg` and an Apple touch icon, plus a 1200 × 630 social sharing image
 
 ---
@@ -106,7 +111,7 @@ Every tool has its own shareable URL, its own page title and description, a step
 - **One place for settings:** `src/lib/site.ts` holds the name, description, domain, social image, optional contact email and social profiles
 - **One list of tools:** `src/lib/tools.ts` drives the homepage, navbar, footer, sitemap and tool pages
 - Tool logic lives in plain TypeScript (`src/lib/json.ts`, `diff.ts`, `base64.ts`, `counter.ts`), separate from the screens
-- **39 automated tests** cover the tool logic, check that the on-page examples match real tool output, verify metadata is consistent, and confirm the icon and social image files exist with the right sizes
+- **42 automated tests** cover the tool logic, check that the on-page examples match real tool output, verify metadata is consistent, and confirm the icon and social image files exist with the right sizes
 - Client-side JavaScript is limited to the interactive parts; the pages themselves are generated ahead of time
 - Only four runtime dependencies: Next.js, React, React DOM and Lucide icons
 
@@ -121,8 +126,9 @@ Every tool has its own shareable URL, its own page title and description, a step
 
 | Name | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | DevKit's real domain; controls canonical URLs, the sitemap, robots.txt and whether indexing is allowed |
+| `NEXT_PUBLIC_SITE_URL` | Optional; only needed if the site moves from `https://vexiqora.vercel.app` |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Optional; shown on the Contact page and adds it to the sitemap |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional; the code from Search Console's "HTML tag" method |
 
 ---
 
@@ -131,4 +137,5 @@ Every tool has its own shareable URL, its own page title and description, a step
 - The tool logic is tested. The full project has **not yet been built, linted or viewed in a browser** by the author of this README, so run `npm install`, `npm run lint` and `npm run build` before deploying.
 - Performance (Core Web Vitals), accessibility scores and social-card previews have not been measured. The design aims for good results, but no figures are claimed.
 - No deployment has been performed, and no search-engine indexing or ranking can be promised.
-- The production domain, contact email and social profiles are placeholders until you provide real values.
+- The contact email and social profiles are not set, because real values haven't been provided.
+- The dark theme has been checked in code and tests only; it hasn't been viewed in a browser, so check contrast and appearance on every page.
